@@ -7,7 +7,6 @@ from email.mime.text import MIMEText
 from email.utils import formatdate, formataddr
 from email.header import Header
 import ssl
-import my_gmail_account as gmail
 import datetime
 import configparser
 import json
