@@ -1,0 +1,4 @@
+anthropic
+boto3
+huggingface-hub
+urllib3
