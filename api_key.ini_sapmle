@@ -1,0 +1,6 @@
+
+[mail]
+from_account=<sender_account>
+password=<user_mail_password>
+to_account=<to_address>
+from_name=<sender_name>
