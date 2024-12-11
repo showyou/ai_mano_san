@@ -1,7 +1,9 @@
 import configparser
+import os
 
 config = configparser.ConfigParser()
-config.read('api_key.ini')
+path = os.path.dirname(os.path.abspath(__file__))
+config.read(path+'/api_key.ini')
 
 print(config.sections())
 print(config["key"]["claude_key"])

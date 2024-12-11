@@ -8,7 +8,7 @@ from botocore.exceptions import ClientError
 class ClaudeClient:
     def __init__(self):
 
-        self.client = boto3.client("bedrock-runtime", region_name="ap-northeast-1")
+        self.client = boto3.client("bedrock-runtime", region_name="us-east-1")
 
         # Set the model ID, e.g., Claude 3 Haiku.
         self.model_id = "anthropic.claude-3-5-sonnet-20240620-v1:0"
@@ -30,7 +30,7 @@ class ClaudeClient:
             response = self.client.invoke_model(modelId=self.model_id, body=request)
 
         except (ClientError, Exception) as e:
-            print(f"ERROR: Can't invoke '{model_id}'. Reason: {e}")
+            print(f"ERROR: Can't invoke '{self.model_id}'. Reason: {e}")
             return None
 
         # Decode the response body.
