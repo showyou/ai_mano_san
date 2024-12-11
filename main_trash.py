@@ -14,7 +14,7 @@ from claude_client import ClaudeClient
 
 config = configparser.ConfigParser()
 path = os.path.dirname(os.path.abspath(__file__))
-config.read(path+'/api_key.ini')
+config.read(path+'/config/api_key.ini')
 
 claude = ClaudeClient()
 
