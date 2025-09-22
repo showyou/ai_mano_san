@@ -2,6 +2,8 @@
 
 import boto3
 import json
+import anthropic
+import os
 
 from botocore.exceptions import ClientError
 
@@ -39,4 +41,33 @@ class ClaudeClient:
         # Extract and print the response text.
         response_text = model_response["content"][0]["text"]
         return response_text
+
+
+class ClaudeAnthropicClient:
+    def __init__(self):
+        self.client = anthropic.Anthropic(
+            api_key=os.environ.get("ANTHROPIC_API_KEY")
+        )
+        self.model_id = "claude-sonnet-4-20250514"
+
+    def create(self, max_tokens=1000, temperature=0.7, messages=""):
+        print(messages)
+        try:
+            response = self.client.messages.create(
+                model=self.model_id,  # Claude Sonnet 4
+                max_tokens=max_tokens,
+                temperature=temperature,
+                messages=[
+                    {
+                        "role": "user",
+                        "content": messages[0]["content"][0]["text"]
+                    }
+                ]
+            )
+            return response.content[0].text
+    
+        except Exception as e:
+            return f"エラーが発生しました: {str(e)}"
+
+
 
