@@ -11,7 +11,7 @@ class ClaudeClient:
         self.client = boto3.client("bedrock-runtime", region_name="us-east-1")
 
         # Set the model ID, e.g., Claude 3 Haiku.
-        self.model_id = "anthropic.claude-3-5-sonnet-20240620-v1:0"
+        self.model_id = "us.anthropic.claude-3-5-sonnet-20241022-v2:0"
 
     def create(self, max_tokens, temperature, messages):
 
