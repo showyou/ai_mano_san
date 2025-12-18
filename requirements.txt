@@ -30,4 +30,4 @@ tokenizers==0.20.1
 tqdm==4.66.5
 typing-extensions==4.15.0
 typing-inspection==0.4.1
-urllib3==2.2.3
+urllib3==2.6.0
